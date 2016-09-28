@@ -13,7 +13,7 @@ exports.login = function(req, res) {
         } else {
             if (user) {
                 var userWillBeSigned = delete user.password;
-                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || 'sssshhhh');
+                var token = jwt.sign(userWillBeSigned, process.env.JWT_SECRET || user.password);
                 user.token = token;
                 user.save(function(err) {
                     if (err) {
