@@ -8,7 +8,7 @@ exports.login = function(req, res) {
             console.error('Error occurred while getting user: ', err);
             res.status(500).json({
                 success: false,
-                data: 'Error occurred while getting user'
+                authData: 'Error occurred while getting user'
             });
         } else {
             if (user) {
@@ -20,19 +20,19 @@ exports.login = function(req, res) {
                         console.error('Error occurred while saving user token: ', err);
                         res.json({
                             success: false,
-                            data: 'Error occurred while saving user token'
+                            authData: 'Error occurred while saving user token'
                         });
                     } else {
                         res.json({
                             success: true,
-                            data: token
+                            authData: token
                         })
                     }
                 });
             } else {
                 res.json({
                     success: false,
-                    data: 'Invalid credentials'
+                    authData: 'Invalid credentials'
                 })
             }
         }
@@ -46,12 +46,12 @@ exports.register = function(req, res) {
             console.error('Error occurred while registering user: ', err);
             res.json({
                 success: false,
-                data: 'Error occurred while registering user'
+                authData: 'Error occurred while registering user'
             })
         } else {
             res.json({
                 success: true,
-                data: user
+                authData: user
             });
         }
     });

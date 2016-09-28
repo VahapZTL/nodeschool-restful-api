@@ -8,8 +8,8 @@ exports.save = function(req, res) {
             console.error('Error occurred while saving user: ', err);
             res.json({
                 success: false,
-                data: 'Error occurred while saving user'
-            })
+                userData: 'Error occurred while saving user'
+            });
         } else {
             res.json({
                 success: true,
@@ -25,13 +25,13 @@ exports.list = function(req, res) {
             console.error('Error occurred while listing users: ', err);
             res.json({
                 success: false,
-                data: 'Error occurred while listing users'
-            })
+                userData: 'Error occurred while listing users'
+            });
         } else {
             res.json({
                 success: true,
                 data: users
-            })
+            });
         }
     });
 };
@@ -42,19 +42,19 @@ exports.get = function(req, res) {
             console.error('Error occurred while getting user: ', err);
             res.json({
                 success: false,
-                data: user
-            })
+                userData: err
+            });
         } else {
             if (user) {
                 res.json({
                     success: true,
                     data: user
-                })
+                });
             } else {
                 res.status(404).json({
                     success: false,
-                    data: "User not found"
-                })
+                    userData: "User not found"
+                });
             }
         }
     });
