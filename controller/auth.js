@@ -25,7 +25,7 @@ exports.login = function(req, res) {
                     } else {
                         res.json({
                             success: true,
-                            authData: token
+                            data: token
                         })
                     }
                 });
@@ -51,7 +51,7 @@ exports.register = function(req, res) {
         } else {
             res.json({
                 success: true,
-                authData: user
+                data: user
             });
         }
     });
